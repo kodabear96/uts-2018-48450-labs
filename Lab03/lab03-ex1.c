@@ -30,11 +30,11 @@ int main(int argc, char*argv[]) {
   if (pthread_join(tid1, &threadResult)) {
     errno = *((int *)threadResult);
     perror("Thread 1 failed");
-    exit(EXIT_FAILURE);
+    return EXIT_FAILURE;
   } else if (pthread_join(tid2, &threadResult)) {
     errno = *((int *)threadResult);
     perror("Thread 2 failed");
-    exit(EXIT_FAILURE);
+    return EXIT_FAILURE;
   }
   free(threadResult);
 
